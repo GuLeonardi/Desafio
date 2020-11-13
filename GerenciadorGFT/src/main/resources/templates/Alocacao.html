@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html
+xmlns = "http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Pesquisa Funcionário em WA</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<form method = "POST" action="/alocacao">
+
+	<text>Escolha o funcionário pela matricula</text>
+	<div class="form-group row">
+    <label for="localdeTrabalho" class="col-sm-2 col-form-label">Matricula</label>
+    <div class="col-sm-2">
+      <select class = "form-control" name = "alocfunc">
+      	<option th:each = "alocfuncionario: ${todosFuncionarios}" th:text = "${alocfuncionario.matricula}" th:value = "${alocfuncionario.matricula}"></option>     	
+      </select>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <label for="alocacao" class="col-sm-2 col-form-label">Vaga</label>
+    <div class="col-sm-2">
+      <select class = "form-control" name = "alocvaga">
+      	<option th:each = "alocvaga: ${todasVaga}" th:text = "${alocvaga.nomeVaga}" th:value = "${alocvaga.nomeVaga}"></option>    	
+      </select>
+    </div>
+  </div>
+  
+  <div class = "form-group">
+  		<div class = "col-sm-offset-2 col-sm-10">
+  			<button type = "submit" class = "btn btn-primary">Salvar</button>
+  		</div>
+  	</div>
+	
+</form>
+<script src="/js/bootstrap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+<script src="/js/jquery.maskMoney.min.js"></script>
+</body>
+</html>
